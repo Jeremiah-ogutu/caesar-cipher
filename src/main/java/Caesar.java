@@ -1,46 +1,4 @@
 
-//public class Caesar {
-//
-//        public static void main(String[] args) {
-//            int key = 7;
-//            String text ="Welcome to my first java program";
-//            char[] chars = text.toCharArray();
-//            for(char c : chars){
-//                c += key;
-//                System.out.print(c);
-//            }
-//
-//        }
-//}
-//public class Caesar{
-//  public  String textMessage;
-//
-//  //generate constrators;
-//
-//    public Caesar(String textMessage, int numBy) {
-//        this.textMessage = textMessage;
-//        this.numBy = numBy;
-//    }
-//
-//    //generate getter and setters for getting the massage
-//    public String getTextMessage(){
-//        return textMessage;
-//    }
-//    public  int getNumBy(){
-//        return  numBy;
-//    }
-//    //encription logic
-//    public  String encrypt() {
-//        StringBuilder sb = new StringBuilder();
-//
-//        for (char character : textMessage.toCharArray()) {
-//
-//        }
-//    }
-
-
-
-//
 
 import java.util.Scanner;
 
@@ -62,7 +20,7 @@ public class Caesar {
     }
 
     public static String EncryptText(String message, int shiftKey) {
-        final String ALPHABETS = "abcdfghijklmnopqrstuvwxyz";
+        final String ALPHABETS = "abcdfghijklmnopqrstuvwxyz.";
         message = message.toLowerCase();
 
         StringBuilder caesarText = new StringBuilder();
