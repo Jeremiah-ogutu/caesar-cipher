@@ -1,29 +1,29 @@
 
-
 import java.util.Scanner;
 
 public class Caesar {
+    private String message;
+    private int shiftKey;
 
-    public static void main(String[] args) {
-        Scanner aScanner = new Scanner(System.in);
-        String plainText;
-        int shiftKey;
-
-        System.out.println("Enter your message:");
-        plainText = aScanner.nextLine();
-
-        System.out.println("Enter shift key");
-        shiftKey = aScanner.nextInt();
-
-        System.out.println("The Encrypted Text: " + EncryptText(plainText, shiftKey));
-
+    public Caesar(String message, int shiftKey ){
+        this.message=message;
+        this.shiftKey=shiftKey;
     }
 
-    public static String EncryptText(String message, int shiftKey) {
-        final String ALPHABETS = "abcdfghijklmnopqrstuvwxyz.";
-        message = message.toLowerCase();
+    public String getMessage() {
+        return message;
+    }
 
-        StringBuilder caesarText = new StringBuilder();
+    public int getShiftKey() {
+        return shiftKey;
+    }
+    StringBuilder caesarText = new StringBuilder();
+    final String ALPHABETS = "abcdfghijklmnopqrstuvwxyz";
+
+    public  String EncryptText() {
+        message = getMessage().toLowerCase();
+        shiftKey=getShiftKey();
+
 
         for (int counter = 0; counter < message.length(); counter++) {
             if (!Character.isLetter(message.charAt(counter))) {
@@ -36,12 +36,35 @@ public class Caesar {
             }
         }
         return caesarText.toString();
+    }
+
+    public  String DecryptText() {
+       String encryptedmessage =EncryptText().toLowerCase();
+
+        StringBuilder DecryptedText = new StringBuilder();
 
 
+        for (int counter = 0; counter < message.length(); counter++) {
+            if (!Character.isLetter(encryptedmessage.charAt(counter))) {
+                DecryptedText.append(encryptedmessage.charAt(counter));
 
 
+            } else {
+                int charPosition = ALPHABETS.indexOf(encryptedmessage.charAt(counter));
+                int keyValue = (charPosition - shiftKey) % 26;
 
-                }
+                char caesarValue = ALPHABETS.charAt(keyValue);
+                DecryptedText.append(caesarValue);
+
+
+            }
+        }
+
+
+        return DecryptedText.toString();
+
+    }
+
+
 }
-//}
 

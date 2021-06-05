@@ -15,7 +15,7 @@ public class CaesarTest {
     }
     @Test
     public void NewCaesarObjectGetsCorrectlyCreated_true() throws Exception {
-        Caesar caesar = new Caesar();
+        Caesar caesar = new Caesar("hi",4);
         assertEquals(true, caesar  instanceof Caesar);
     }
 }
